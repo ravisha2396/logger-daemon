@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package logservice;
+
+option go_package = "./logservice";
+
+service LogService {
+    rpc LogMessage(LogRequest) returns (LogResponse);
+}
+
+message LogRequest {
+    string process_name = 1;
+    string message = 2;
+}
+
+message LogResponse {
+    bool success = 1;
+}
